@@ -27,8 +27,21 @@
            {{product.name}} 
 
         </h5> 
+ 
+        {% if product.price > 2000 %} 
 
-        <p class="card-text">{{product.description}}</p> 
+            <p class="card-text" style="color: red;">{{product.price}}</p> 
+
+        {% else %} 
+
+            <p class="card-text">{{product.price}}</p> 
+
+        {% endif %}
+        {% for comment in product.comment_set.all %} 
+
+        - {{ comment.description }}<br /> 
+
+        {% endfor %} 
 
       </div> 
 
